@@ -1,5 +1,11 @@
 # Docker compose that runs Elastic stack and Cribl worker
-Docker compose that starts Elasticsearch and Kibana as well as Cribl Stream worker in `single` mode.
+Docker compose that starts Elasticsearch and Kibana as well as Cribl Stream worker in `single` mode. 
+
+## Credentials
+### Cribl
+admin:cribldemo
+### Elastic
+elastic:cribldemo
 
 ## To start Elasticsearch, Kibana and Cribl Stream
 ```bash
