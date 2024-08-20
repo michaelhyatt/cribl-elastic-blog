@@ -4,10 +4,9 @@ networks:
     driver: bridge
 
 services:
-  # Cribl
+  # Cribl Stream worker
   cribl-worker:
     image: cribl-worker:latest
-    # platform: linux/amd64
     container_name: cribl-worker
     build:
       context: src/criblworker
@@ -16,13 +15,11 @@ services:
       - CRIBL_VOLUME_DIR=/criblworkerhome
     volumes:
       - ./criblworkerhome:/criblworkerhome
-    # cap_add:
-    #   - SYS_PTRACE
-    # security_opt:
-    #   - seccomp=unconfined  
-    # user: root
+      - certs:/certs # Elastic certs dir
     ports:
       - 9000:9000
+      # Additional source ports go here
+      - 19200:19200
 
   # Elastic
   setup:
